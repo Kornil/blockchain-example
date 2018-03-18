@@ -8,7 +8,7 @@ class Blockchain {
 
   newBlock = (proof, previousHash) => {
     const block = {
-      index: this.chain.length + 1,
+      index: this.chain.size + 1,
       timestamp: new Date(),
       transactions: this.currentTransactions,
       proof: proof,

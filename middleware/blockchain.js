@@ -44,7 +44,6 @@ class Blockchain {
   };
 
   validProof(lastProof, proof) {
-    console.log(lastProof, proof)
     const guessHash = crypto
       .createHmac(process.env.HASH_TYPE, process.env.CRYPTO_SECRET)
       .update(`${lastProof}${proof}`)

@@ -1,3 +1,5 @@
+const crypto = require('crypto')
+
 class Blockchain {
   constructor() {
     this.chain = new Set();

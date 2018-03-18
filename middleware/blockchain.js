@@ -10,17 +10,17 @@ class Blockchain {
     const block = {
       index: this.chain.length + 1,
       timestamp: new Date(),
-      transactions: this.current_transactions,
+      transactions: this.currentTransactions,
       proof: proof,
       previous_hash: previousHash
     };
-    this.current_transactions = new Set();
+    this.currentTransactions = new Set();
     this.chain.add(block);
     return block;
   };
 
   newTransaction = (sender, recipient, amount) => {
-    this.current_transactions.push({
+    this.currentTransactions.add({
       sender: sender,
       recipient: recipient,
       amount: amount

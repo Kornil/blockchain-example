@@ -2,14 +2,14 @@ const express = require("express");
 const router = express.Router();
 const { check } = require("express-validator/check");
 
-const Chiccocoin = require("../middleware/chiccocoin");
+const JsMoney = require("../middleware/jsmoney");
 
 const responseMiddleware = (req, res, next) => {
   return res.json(req.responseValue);
 };
 /* GET home page. */
 router.get("/", function(req, res, next) {
-  res.render("index", { title: "Chicco Coin" });
+  res.render("index", { title: "Js Money" });
 });
 
 router.post(
@@ -21,12 +21,12 @@ router.post(
       .isInt()
       .exists()
   ],
-  Chiccocoin.newTransaction,
+  JsMoney.newTransaction,
   responseMiddleware
 );
 
-router.get("/mine", Chiccocoin.mine, responseMiddleware);
+router.get("/mine", JsMoney.mine, responseMiddleware);
 
-router.get("/chain", Chiccocoin.getChain, responseMiddleware);
+router.get("/chain", JsMoney.getChain, responseMiddleware);
 
 module.exports = router;

@@ -5,14 +5,14 @@ class JsMoney {
   constructor() {
     this.blockchain = new Blockchain();
   }
-  getChain(req, res, next) {
+  getChain = (req, res, next) => {
     req.responseValue = {
       message: "Get Chain",
       chain: this.blockchain.chain
     };
     return next();
   }
-  mine(req, res, next) {
+  mine = (req, res, next) => {
     const lastBlock = this.blockchain.lastBlock();
     const lastProof = lastBlock.proof;
     const proof = this.blockchain.proofOfWork(lastProof);
@@ -34,7 +34,7 @@ class JsMoney {
     return next();
   }
 
-  newTransaction(req, res, next) {
+  newTransaction = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.mapped() });

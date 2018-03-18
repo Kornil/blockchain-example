@@ -4,6 +4,7 @@ class Blockchain {
   constructor() {
     this.chain = new Set();
     this.currentTransactions = new Set();
+    this.newBlock(100, 1);
   }
 
   newBlock = (proof, previousHash) => {
